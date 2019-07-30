@@ -1,4 +1,4 @@
-FROM node:12.2.0
+FROM node:12.7.0
 
 # set working directory
 WORKDIR /app
@@ -10,9 +10,14 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 RUN npm install
 RUN npm install -g @angular/cli
+RUN npm install -g http-server
 
 # add app
 COPY . /app
+RUN npm install typescript@'>=2.7.2 <2.8.0'
 
-# start app
-CMD ng serve --host 0.0.0.0
+RUN ng build --prod
+RUN ls
+
+RUN chmod 777 start.sh
+CMD "./start.sh"
