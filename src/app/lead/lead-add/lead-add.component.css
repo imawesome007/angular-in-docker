@@ -1,0 +1,25 @@
+#add_leads {
+    background-color: black;
+    color: white;
+}
+
+.modal-header {
+    background-color: black;
+    color: white;
+}
+
+.buttons {
+    text-align: center;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+.help-block{
+float: right;
+}
+
+.fa.fa-asterisk{
+    background-clip: red;
+    color: red
+}

@@ -1,0 +1,95 @@
+<button type="button" id="add_leads" class="btn btn-default btn-md" data-toggle="modal" data-target="#ModalForm" #closeModal>
+  Add Lead</button>
+<div id="ModalForm" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Lead</h5>
+        <a data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i></a>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputFirstName">First Name <i class="fa fa-asterisk"></i></label>
+              <input 
+              type="text" 
+              ngModel 
+              name="first_name" 
+              class="form-control" 
+              id="inputMail"
+              required
+              placeholder="Apaar">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastName">Last Name <i class="fa fa-asterisk"></i></label>
+              <input type="text" 
+              ngModel 
+              name="last_name"
+              required
+              class="form-control" 
+              id="inputLastName" 
+              placeholder="Seth">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputMail">Email Address <i class="fa fa-asterisk"></i></label>
+              <input 
+              type="email" 
+              class="form-control"
+              ngModel
+              name="email" 
+              required 
+              email
+              #email="ngModel"
+              id="inputMail" 
+              placeholder="abc@gmail.com">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputMobile">Mobile <i class="fa fa-asterisk"></i></label>
+              <input 
+              type="text" 
+              ngModel
+              name="mobile" 
+              required 
+              maxlength="10"
+              minlength="10"
+              #mobile="ngModel"
+              class="form-control" 
+              id="inputMobile" 
+              placeholder="9128xxxxxx">
+            </div>
+            <small class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</small>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputLocationType">Location Type <i class="fa fa-asterisk"></i></label>
+              <input 
+              type="text" 
+              ngModel
+              name="location_type"
+              required
+              class="form-control" 
+              id="inputLocationType">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLocationString">Location String <i class="fa fa-asterisk"></i></label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="inputLocationString"
+              ngModel
+              name="location_string"
+              required>
+            </div>
+          </div>
+          <div class="buttons">
+            <button type=button class="btn btn-default mr-2" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-default" data-toggle="modal" [disabled]="!f.valid">Save</button>
+          </div>
+        </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
